@@ -1,0 +1,7 @@
+2022-08-13  danny  area_entrance.c  made so that walking castle cannot enter the area
+    it got stuck in hedge maze. if unhappy with this, made so that the maze is
+    not enterable then
+    removed the toplist since its is outdated. please use another type of logger
+    that does not deactivate after you go offline for days
+
+2022-08-13  danny  gardener.c  added aliases for his name (keeper, etc)
