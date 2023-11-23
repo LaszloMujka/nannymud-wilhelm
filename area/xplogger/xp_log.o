@@ -1,0 +1,37 @@
+alignment 0
+al_title 0
+money 0
+msgin 0
+msgout 0
+level 0
+hit_point 0
+max_hp 0
+max_sp 0
+experience 0
+mmsgout 0
+mmsgin 0
+name "xp logger"
+ghost 0
+spell_points 0
+age 0
+is_invis 0
+dead 0
+gender 0
+Str 0
+Int 0
+Con 0
+Dex 0
+wet_time 0
+short_desc "xp logger"
+long_desc "an xp logger"
+items 0
+commands 0
+aliases ({"logger",})
+name "thing"
+wet_time 0
+race 0
+aggressive 0
+wimpy 0
+log_start_time 1659643333
+parsed_data (["giku":({1700531077,4,64,6600,}),])
+pi ({"wilhelm",})

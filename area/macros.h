@@ -2,3 +2,6 @@
 #define TO this_object()
 #define TP this_player()
 #define MSG(x) "/std/msg"->msg(x)
+#define AREA "/players/wilhelm/area/"
+#define XP_LOGGER	AREA + "xplogger/xp_logger"
+#define MONSTER AREA + "siridfaath/monsters/basic_monster.c"

@@ -1,4 +1,7 @@
-inherit "/std/state_monster";
+#include "../../macros.h"
+
+//inherit "/std/state_monster";
+inherit MONSTER;
 
 #define WSAY(X) tell_room(environment(), line_break(X, "Guard says: ", 78))
 #define LOGGER load_object("/players/wilhelm/simple_logger")
@@ -25,12 +28,12 @@ void reset(int arg)
   set_level(15);
   add_property ("no_die_message");
   set_al(150);
-  set_state("init");
+  //set_state("init");
   add_soul();
   start_walking(45);
   
-  add_hook("die_hook", this_object());
-  add_hook("kill_hook", this_object());
+  // add_hook("die_hook", this_object());
+  // add_hook("kill_hook", this_object());
   
   add_object("/players/wilhelm/area/siridfaath/armour/hardened_leather");
   add_object("/players/wilhelm/area/siridfaath/weapons/troll_sword");
@@ -49,6 +52,14 @@ said (who, word) {
   }
 }
 
+
+// die_hook(data, who) {
+//   LOGGER -> log("kills", "killed Guard", data[0]);
+// }
+// kill_hook(data, who) {
+//   LOGGER -> log("deaths", "killed by Guard", data[0]);
+// }
+
 start_attack(who) {
   object w;
 
@@ -63,10 +74,3 @@ start_attack(who) {
   }
 } 
 
-
-die_hook(data, who) {
-  LOGGER -> log("kills", "killed Guard", data[0]);
-}
-kill_hook(data, who) {
-  LOGGER -> log("deaths", "killed by Guard", data[0]);
-}

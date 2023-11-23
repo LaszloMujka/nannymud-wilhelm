@@ -7,7 +7,13 @@ inherit "/std/room";
 void reset(int arg) 
 {
   ::reset(arg);
-  if (arg) 
+  
+  object o;
+  o = load_object("/players/wilhelm/area/xplogger/sign.c");
+  if (!environment(o))
+    move_object(o, this_object());
+  
+    if (arg) 
     return;
     
 // -- Properties ---------------------------------------------------------
@@ -16,6 +22,7 @@ void reset(int arg)
   add_exit("west", "/players/wilhelm/area/siridfaath/rooms/siridfaath_circus");
   add_exit("examples", "/examples/room/room1", 0, "@block_mortal()");
   add_exit("test", "/players/wilhelm/tests/start", 0, "@block_mortal()");
+  add_exit("xpl", "/players/wilhelm/area/xplogger/xplogger_control_room", 0, "@block_mortal()");
   
   add_property("no_teleport");
   add_property("indoors");
@@ -28,13 +35,13 @@ void reset(int arg)
 	     "It appears to be an abandoned circus tent. A map hangs on wall. ");
 
 	add_item(({ "map" }), "A big map of the area. Try 'study map'");
-	
+	//add_item("plaque", "Read plaque ?");
 	
 // -- Objects ------------------------------------------------------------
 
-    add_object(load_object("/players/wilhelm/simple_logger"));
-	add_object("killerlist");
-	add_object("/players/wilhelm/area/siridfaath/obj/puzzlelist");
+    //add_object(load_object("/players/wilhelm/simple_logger"));
+	//add_object("killerlist");
+	//add_object("/players/wilhelm/area/siridfaath/obj/puzzlelist");
 // -- Commands ------------------------------------------------------------
  
  	add_item_cmd("study", "map", "@inarea()");
