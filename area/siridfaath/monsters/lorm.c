@@ -28,19 +28,19 @@ void reset(int arg)
   
 // -- Responses -------------------------------------------------------------  
   
-  add_response("%1 smiles %2 at you","!grin %L1");
-  add_response("SAY(%1,%2)","$said(%1,%2)");
+  add_response("ALL","%1 smiles %2 at you","!smile %L1");
+  add_response("ALL","SAY(%1,%2)","$said(%1,%2)");
   
 	
-  add_chat("note","Lorm notes something down on the blackboard.");
-  add_chat("write","Lorm writes something down on the blackboard.");
-  add_chat("sctibble","Lorm scribbles something down on the blackboard.");
-  add_chat("write","Lorm writes something down on a small notepad.");
-  add_chat("sigh","Lorm sighs.");
-  add_chat("look","Lorm looks bored.");
-  add_chat("say","Lorm says: I hate this job!");
-  add_chat("say","Lorm says: Don't you have anything better to do?");
-  add_chat("erase","Lorm erases something down on the blackboard.");
+  add_chat("ALL","Lorm notes something down on the blackboard.");
+  add_chat("ALL","Lorm writes something down on the blackboard.");
+  add_chat("ALL","Lorm scribbles something down on the blackboard.");
+  add_chat("ALL","Lorm writes something down on a small notepad.");
+  add_chat("ALL","Lorm sighs.");
+  add_chat("ALL","Lorm looks bored.");
+  add_chat("ALL","Lorm says: I hate this job!");
+  add_chat("ALL","Lorm says: Don't you have anything better to do?");
+  add_chat("ALL","Lorm erases something down on the blackboard.");
 
 }
 

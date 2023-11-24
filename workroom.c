@@ -41,7 +41,7 @@ void reset(int arg)
 
     //add_object(load_object("/players/wilhelm/simple_logger"));
 	//add_object("killerlist");
-	//add_object("/players/wilhelm/area/siridfaath/obj/puzzlelist");
+	add_object("/players/wilhelm/area/siridfaath/obj/puzzlelist");
 // -- Commands ------------------------------------------------------------
  
  	add_item_cmd("study", "map", "@inarea()");

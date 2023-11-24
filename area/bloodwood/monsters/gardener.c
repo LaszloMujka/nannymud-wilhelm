@@ -1,8 +1,9 @@
 // -- This line is 78 characters long ----------------------------------------
-inherit "/std/state_monster";
+#include "../../macros.h"
+inherit MONSTER;
 
 #define WSAY(X) tell_room(environment(), line_break(X, "Gardener says: ", 78))
-#define LOGGER load_object("/players/wilhelm/simple_logger")
+//#define LOGGER load_object("/players/wilhelm/simple_logger")
 
 void reset(int arg)
 {
@@ -25,10 +26,7 @@ void reset(int arg)
   set_al(-150);
   add_money(random(40) + 15);
   set_state("INIT");
-  add_soul();
-
-  add_hook("die_hook", this_object());
-  add_hook("kill_hook", this_object());   
+  add_soul(); 
 
 // -- Responses -------------------------------------------------------------  
   
@@ -38,8 +36,6 @@ void reset(int arg)
   add_response("ALL","GOT(%1,%2)", "$handle_give(%1,%2)");
   add_response("INIT","ARRIVE(%1)","$arrive(%1)");
   
-  add_hook("die_hook", this_object());
-  add_hook("kill_hook", this_object());
 }
 
 said_i (who, word) {
@@ -111,16 +107,9 @@ handle_give(what_name,  who_name) {
     this_player()->set_puzzle("wilhelm_bloodwood_gloves");
     this_player() -> add_exp(500);
     set_state("GLOVE");
-    LOGGER -> log("puzzle", "Returned gloves", this_player());
+    //LOGGER -> log("puzzle", "Returned gloves", this_player());
     write("You feel a little more experienced.\n");
     return;
   }
 }
 
-die_hook(data, who) {
-  LOGGER -> log("kills", "killed gardener ", data[0]);
-}
-
-kill_hook(data, who) {
-  LOGGER -> log("deaths", "killed by gardener ", data[0]);
-}

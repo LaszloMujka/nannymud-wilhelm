@@ -1,8 +1,9 @@
 // -- This line is 78 characters long ----------------------------------------
 
-inherit "/std/state_monster";
+#include "../../macros.h"
+inherit MONSTER;
 
-#define LOGGER load_object("/players/wilhelm/simple_logger")
+//#define LOGGER load_object("/players/wilhelm/simple_logger")
 
 void reset(int arg)
 {
@@ -25,8 +26,7 @@ void reset(int arg)
   set_al(-200);
   set_state("init");
   
-  add_hook("die_hook", this_object());
-  add_hook("kill_hook", this_object());   
+
    
   
 // -- Responses -------------------------------------------------------------
@@ -42,12 +42,4 @@ void reset(int arg)
 
 }
 
-// -- LOGGER ----------------------------------------------------------------
-
-die_hook(data, who) {
-  LOGGER -> log("kills", "killed a swarm of blood wasps", data[0]);
-}
-kill_hook(data, who) {
-  LOGGER -> log("deaths", "killed by a swarm of blood wasps", data[0]);
-}
 
