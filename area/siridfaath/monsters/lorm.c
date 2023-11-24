@@ -1,8 +1,8 @@
 // -- This line is 78 characters long ----------------------------------------
-inherit "/std/monster.c";
+#include "../../macros.h"
+inherit MONSTER;
 
 #define WSAY(X) tell_room(environment(), line_break(X, "Lorm says: ", 78))
-#define LOGGER load_object("/players/wilhelm/simple_logger")
 
 void reset(int arg)
 {
@@ -32,15 +32,15 @@ void reset(int arg)
   add_response("SAY(%1,%2)","$said(%1,%2)");
   
 	
-  add_chat("Lorm notes something down on the blackboard.");
-  add_chat("Lorm writes something down on the blackboard.");
-  add_chat("Lorm scribbles something down on the blackboard.");
-  add_chat("Lorm writes something down on a small notepad.");
-  add_chat("Lorm sighs.");
-  add_chat("Lorm looks bored.");
-  add_chat("Lorm says: I hate this job!");
-  add_chat("Lorm says: Don't you have anything better to do?");
-  add_chat("Lorm erases something down on the blackboard.");
+  add_chat("note","Lorm notes something down on the blackboard.");
+  add_chat("write","Lorm writes something down on the blackboard.");
+  add_chat("sctibble","Lorm scribbles something down on the blackboard.");
+  add_chat("write","Lorm writes something down on a small notepad.");
+  add_chat("sigh","Lorm sighs.");
+  add_chat("look","Lorm looks bored.");
+  add_chat("say","Lorm says: I hate this job!");
+  add_chat("say","Lorm says: Don't you have anything better to do?");
+  add_chat("erase","Lorm erases something down on the blackboard.");
 
 }
 

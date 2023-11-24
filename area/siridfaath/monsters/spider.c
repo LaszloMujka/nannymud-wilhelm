@@ -1,8 +1,9 @@
 /* Scintillant a huge spider */
 
-inherit "/std/monster";
+#include "../../macros.h"
+inherit MONSTER;
 
-#define LOGGER load_object("/players/wilhelm/simple_logger")
+//#define LOGGER load_object("/players/wilhelm/simple_logger")
 
 void reset(int arg)
 {
@@ -23,8 +24,7 @@ void reset(int arg)
   set_al(-50);
   set_aggressive(10);
 
-  add_hook("die_hook", this_object());
-  add_hook("kill_hook", this_object());
+
   
   add_attack("The spider's sharp crystal legs burrow into your body!\n", 10, 0, 1);
   
@@ -48,9 +48,3 @@ void reset(int arg)
   return crystal;
   }
   
-  die_hook(data, who) {
-  LOGGER -> log("kills", "killed Spider", data[0]);
-}
-kill_hook(data, who) {
-  LOGGER -> log("deaths", "killed by Spider", data[0]);
-}

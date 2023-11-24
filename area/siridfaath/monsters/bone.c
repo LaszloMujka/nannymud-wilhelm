@@ -2,12 +2,12 @@
 //This monster will be a part of a puzzle. 
 
 // -- This line is 78 characters long ----------------------------------------
-
-inherit "/std/state_monster";
+#include "../../macros.h"
+inherit MONSTER;
 
 #define XSAY(X) tell_room(environment(), line_break(X, "Bone says: ", 78))
 #define SAY(X)       tell_room(environment(), X)
-#define LOGGER load_object("/players/wilhelm/simple_logger")
+//#define LOGGER load_object("/players/wilhelm/simple_logger")
 
 void reset(int arg)
 {
@@ -33,8 +33,8 @@ void reset(int arg)
   set_state("init");
   add_soul();
   
-  add_hook("die_hook", this_object());
-  add_hook("kill_hook", this_object());
+  // add_hook("die_hook", this_object());
+  // add_hook("kill_hook", this_object());
   
   add_attack("The windeling flies down from above and stabs \b2PRON with "+
   "her spear!\n",30,0,1);
@@ -158,7 +158,7 @@ handle_give(what_name,  who_name) {
 	set_aggressive(5); 
 	this_player()->set_puzzle("wilhelm_puzzle_bone");
 	this_player() -> add_exp(500);
-	LOGGER -> log("puzzle", "Crystal sword", this_player());
+	//LOGGER -> log("puzzle", "Crystal sword", this_player());
 	write("You feel a little more experienced.\n");
     return;
   }
@@ -171,12 +171,4 @@ int remote_real_monster_died(object monster) {
     "plot her revenge.\n");
 } // death msg
 
-// -- LOGGER -----------------------------------------------------------------
-
-die_hook(data, who) {
-  LOGGER -> log("kills", "killed Bone", data[0]);
-}
-kill_hook(data, who) {
-  LOGGER -> log("deaths", "killed by Bone", data[0]);
-}
 

@@ -1,8 +1,7 @@
 // -- This line is 78 characters long ----------------------------------------
 
-inherit "/std/state_monster";
-
-#define LOGGER load_object("/players/wilhelm/simple_logger")
+#include "../../macros.h"
+inherit MONSTER;
 
 void reset(int arg)
 {
@@ -69,16 +68,5 @@ arrive(who) {
 	  this_player()->add_property("wilhelm_bloodwood_horn");	
       write ("You feel cursed and the forest seems to shift.");
   return 1;
-}
-
-
-
-// -- LOGGER ----------------------------------------------------------------
-
-die_hook(data, who) {
-  LOGGER -> log("kills", "killed a exolasher", data[0]);
-}
-kill_hook(data, who) {
-  LOGGER -> log("deaths", "killed by a exolasher", data[0]);
 }
 

@@ -1,8 +1,9 @@
-inherit "/std/monster.c";
+#include "../../macros.h"
+inherit MONSTER;
 
 #define WSAY(X) tell_room(environment(), line_break(X, "Mirielle says: ", 78))
-#define LOGGER load_object("/players/wilhelm/simple_logger")
 
+//child does not respond to the text - say, or the add_response actions
 // -- This line is 78 characters long ----------------------------------------
 void reset(int arg)
 {
@@ -26,14 +27,12 @@ void reset(int arg)
   set_al(50);
   add_soul();
   
-  add_hook("die_hook", this_object());
-  add_hook("kill_hook", this_object());
   
   set_chat_chance(2);
 
-  add_response("%1 smiles %2 at you","!smile %L1");
-  add_response("SAY(%1,%2)","$said(%1,%2)");
-  add_response("GOT(%1,%2)", "$handle_give(%1,%2)");
+  add_response("ALL","%1 smiles %2 at you","!smile %L1");
+  add_response("ALL","SAY(%1,%2)","$said(%1,%2)");
+  add_response("ALL","GOT(%1,%2)", "$handle_give(%1,%2)");
   
   add_object("/players/wilhelm/area/siridfaath/obj/doll");
   add_object("/players/wilhelm/area/siridfaath/obj/stone");
@@ -45,10 +44,10 @@ void reset(int arg)
   
 // -- Chats --------------------------------------------------------------
 
-  add_chat("Mirielle dances around the well.");
-  add_chat("Mirielle peeks down into the well.");
-  add_chat("Mirielle throws a small rock down the well.");
-  add_chat("Mirielle plays with her doll.");
+  add_chat("ALL","Mirielle dances around the well.");
+  add_chat("ALL","Mirielle peeks down into the well.");
+  add_chat("ALL","Mirielle throws a small rock down the well.");
+  add_chat("ALL","Mirielle plays with her doll.");
   
   
 }
@@ -92,19 +91,10 @@ handle_give(what_name,  who_name) {
     destruct(what_obj);
 	this_player()->set_puzzle("wilhelm_merchant_key");
 	this_player() -> add_exp(1000);
-	LOGGER -> log("puzzle", "Merchant key", this_player());
+	//LOGGER -> log("puzzle", "Merchant key", this_player());
 	write("You feel a little more experienced.\n");
     return;
   }
 }
 
-// -- LOGGER -----------------------------------------------------------------
-
-die_hook(data, who) {
-  LOGGER -> log("kills", "killlled Mirrielle", data[0]);
-}
-
-kill_hook(data, who) {
-  LOGGER -> log("deaths", "killed by Mirrielle", data[0]); 
-}
 

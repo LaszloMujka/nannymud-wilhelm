@@ -1,4 +1,6 @@
-inherit "/std/monster";
+#include "../../macros.h"
+inherit MONSTER;
+
 #define WSAY(X) tell_room(environment(), line_break(X, "Patrochian says: ", 78))
 #define LOGGER load_object("/players/wilhelm/simple_logger")
 
@@ -22,19 +24,19 @@ reset(arg) {
     command("wield sword");
 	
    add_response("SAY(%1,%2)","$said(%1,%2)");	
-   add_hook("die_hook", this_object());
-   add_hook("kill_hook", this_object());   
+  //  add_hook("die_hook", this_object());
+  //  add_hook("kill_hook", this_object());   
    add_response("GOT(%1,%2)", "$handle_give(%1,%2)");
 
   }
 } 
-  die_hook(data, who) {
-  LOGGER -> log("kills", "killed Patrochian", data[0]);
-}
+//   die_hook(data, who) {
+//   LOGGER -> log("kills", "killed Patrochian", data[0]);
+// }
 
-kill_hook(data, who) {
-  LOGGER -> log("deaths", "killed by Patrochian", data[0]);
-}
+// kill_hook(data, who) {
+//   LOGGER -> log("deaths", "killed by Patrochian", data[0]);
+// }
 
 said (who, word) {
   if ((sscanf(lower_case(word),"%*shelp%*s") == 2) &&
@@ -168,7 +170,7 @@ handle_give(what_name,  who_name) {
 	this_player()->set_puzzle("wilhelm_bloodwood_quest");
 	this_player() -> add_exp(2500);
 	destruct(what_obj);
-	LOGGER -> log("puzzle", "Stole rose", this_player());
+	//LOGGER -> log("puzzle", "Stole rose", this_player());
 	write("Thank you for BETA testing!\n");
     return line_break ("As captain Patrochian receives the magic rose, the large vines "+
 	"entangling the riverboats starts to twist and turn. Slowly seeping back into the "+

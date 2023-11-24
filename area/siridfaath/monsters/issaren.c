@@ -9,10 +9,10 @@
 */
 
 // -- This line is 78 characters long ----------------------------------------
-inherit "/std/monster.c";
+#include "../../macros.h"
+inherit MONSTER;
 
 #define HSAY(X) tell_room(environment(), line_break(X, "Issaren says: ", 78))
-#define LOGGER load_object("/players/wilhelm/simple_logger")
 
 reset(arg)
 {
@@ -37,8 +37,7 @@ reset(arg)
   set_al(150);
   add_soul();
   set_chat_chance(1);
-  add_hook("die_hook", this_object());
-  add_hook("kill_hook", this_object());
+
 
 // -- Chats -----------------------------------------------------------------
 
@@ -322,11 +321,4 @@ said (who, word) {
     "/std/msg"->msg("Issaren throws a pie in \bposs face.\n");
     return 1;
   } // Say wilhelm 
-}
-
-die_hook(data, who) {
-  LOGGER -> log("kills", "killed Issaren", data[0]);
-}
-kill_hook(data, who) {
-  LOGGER -> log("deaths", "killed by Issaren", data[0]);
 }

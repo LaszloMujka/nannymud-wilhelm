@@ -1,6 +1,6 @@
 #include "/players/wilhelm/area/macros.h"
 
-inherit "std/monster";
+inherit "std/state_monster";
 
 reset(arg){
         ::reset(arg);

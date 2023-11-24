@@ -2,10 +2,10 @@
 
 // -- This line is 78 characters long ----------------------------------------
 
-inherit "/std/state_monster";
+#include "../../macros.h"
+inherit MONSTER;
 
 #define XSAY(X) tell_room(environment(), line_break(X, "Xendri says: ", 78))
-#define LOGGER load_object("/players/wilhelm/simple_logger")
 
 void reset(int arg)
 {
@@ -35,8 +35,6 @@ void reset(int arg)
   add_response("ALL", "%1 smiles %2 at you","!smile %L1");
   add_response("ALL","SAY(%1,%2)","$said(%1,%2)");
   
-  add_hook("die_hook", this_object());
-  add_hook("kill_hook", this_object());
 
   add_item( ({ "hair","curly hair","blond hair" }), 
     "Xendri got long and beautiful hair. The curly hair reaches down to her "+
@@ -76,11 +74,4 @@ said (who, word) {
     "Siridfaath.");
     return 1;
   }
-}
-
-die_hook(data, who) {
-  LOGGER -> log("kills", "killed Xendri", data[0]);
-}
-kill_hook(data, who) {
-  LOGGER -> log("deaths", "killed by Xendri", data[0]);
 }

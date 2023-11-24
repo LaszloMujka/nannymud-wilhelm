@@ -28,7 +28,7 @@ void reset(int arg)
   set_level(15);
   add_property ("no_die_message");
   set_al(150);
-  //set_state("init");
+  set_state("init");
   add_soul();
   start_walking(45);
   
