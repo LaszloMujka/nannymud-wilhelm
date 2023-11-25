@@ -2,7 +2,7 @@
 
 
 inherit "/std/room";
-#define LOGGER load_object("/players/wilhelm/simple_logger")
+//#define LOGGER load_object("/players/wilhelm/simple_logger")
 
 int where_is_key;
 mapping seen_key;

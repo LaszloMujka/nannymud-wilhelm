@@ -3,7 +3,7 @@
 // -- This line is 78 characters long ----------------------------------------
 
 inherit "/std/room";
-#define LOGGER load_object("/players/wilhelm/simple_logger")
+//#define LOGGER load_object("/players/wilhelm/simple_logger")
 
 
 void reset(int arg)
@@ -19,7 +19,7 @@ void reset(int arg)
   add_property("no_fight");
   add_property("inside");
   add_exit("out", "siridfaath_road2");
-  add_hidden_exit("east", "/players/wilhelm/workroom", "east, into the wall","check_wiz");
+  add_hidden_exit("east", "/players/wilhelm/workroom", "east, into the wall", "check_wiz");
   
 
 // -- Description and settings -----------------------------------------------
@@ -51,27 +51,30 @@ void reset(int arg)
 // -- Commands ---------------------------------------------------------------
 
 read_blackboard() {
-	
-write("+ means you have solved this puzzle!\n");	
-write ("+------------------------------------+\n ");
-  write("Wilhelm's puzzle and quest board! \n");
-write ("+------------------------------------+\n\n ");
-  write("Siridfaath:\n");
-  	if(this_player()->query_puzzle("wilhelm_merchant_key")) {
-	write ("+ ");}
-  write("Lost key.\n");
-  	if(this_player()->query_puzzle("wilhelm_puzzle_bone")) {
-	write ("+ ");}
-  write("Angry ork.\n");
-  write("\n");
-  write("Bloodwood:\n");
-	if(this_player()->query_puzzle("wilhelm_bloodwood_quest")) {
-	write ("+ ");}
-  write("The curse of path magic.\n");
-  	if(this_player()->query_puzzle("wilhelm_bloodwood_glove")) {
-	write ("+ ");}
-  write("Find the missing gloves.\n");
-  write("\n");
+  mapping puzz = ([
+    "Siridfaath:": ([
+      "wilhelm_merchant_key": "Lost key:               ",
+      "wilhelm_puzzle_bone": "Angry ork:              "
+    ]),
+    "Bloodwood:": ([
+      "wilhelm_bloodwood_quest": "The curse of path magic:",
+      "wilhelm_bloodwood_glove": "Find the missing gloves:"
+    ])
+  ]);
+
+  string res, z, p;
+  res = " +-------------------------------------+\n "+
+      "|  Wilhelm's puzzle and quest board!  |\n"+
+        " +-------------------------------------+\n";
+  foreach(z, m_indices(puzz)) {
+    res += " |                                     |\n";
+    res +=sprintf(" | %-11s %-23s |\n", z, " ");
+    foreach(p, m_indices(puzz[z])) {
+      res += " | "+puzz[z][p]+(this_player()->query_puzzle(p)? " ":" not ")+"solved |\n";
+    }
+  }
+  res += " +-------------------------------------+\n";
+  write(res);
   return 1;
 	  
 }
