@@ -13,12 +13,11 @@ void reset(int arg)
 
 // -- Settings -------------------------------------------------------------- 
 
-  set_short("a royal groundskeeper");
+  set_short("a royal gardener");
   set_long("A long slender elf, working as a gardener in the royal gardens. "+
   "Every inch of his body is covered in sharp thorns.");
   
-  set_name("the groundskeeper");
-  add_alias("gardener");
+  set_name("gardener");
   add_alias(({"groundskeeper", "keeper", "grounds keeper"})); //danny 2022-08-13 
   set_race("elf");
   set_gender(1);
@@ -96,7 +95,7 @@ handle_give(what_name,  who_name) {
   who_obj=find_object(who_name);
   
   if (this_player()->query_puzzle("wilhelm_bloodwood_gloves") && (what_obj -> id("wilhelm_gardener_gloves"))) {
-    WSAY("I don't think this is my gloves\n");
+    WSAY("I do not know what to do with this " + what_obj -> query_name()+ " and drops them.\n");
   	transfer(what_obj, environment());
     return;
   }

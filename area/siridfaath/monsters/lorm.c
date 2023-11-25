@@ -100,11 +100,11 @@ said (who, word) {
       if ((sscanf(lower_case(word),"%*sgloves%*s") == 2) ||
       sscanf(lower_case(word),"%*sglove%*s") == 2){
   	if(this_player()->query_puzzle("wilhelm_bloodwood_glove")) {
-	WSAY("I can't belive you helped a bloodelf!");
+	WSAY("I can't believe you helped a bloodelf!");
 	write("Lorm spits.");
 	return 1;}
 	else
-	WSAY("A bloodelf lost his gloves, who do we even care?.");
+	WSAY("A bloodelf lost his gloves, do we even care?.");
 	return 1;
   }
       if (sscanf(lower_case(word),"%*swilhelm%*s") == 2) {

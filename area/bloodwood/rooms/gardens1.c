@@ -137,7 +137,7 @@ cmd_climb_hedge()
   if (eq)  
     obj=eq["glove"];
 	if (obj && obj -> id("wilhelm_gardener_gloves")) {
-    return line_break ("Even withe protective gloves, the hedge is too full of sharp thorns to be "+
+    return line_break ("Even with the protective gloves, the hedge is too full of sharp thorns to be "+
 	"able to climb. You could just enter the maze by walking north.");}	
   else
 	return line_break("The hedge is too full of sharp thorns to be able to climb. You could just "+

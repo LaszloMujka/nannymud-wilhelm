@@ -26,8 +26,6 @@ void reset(int arg)
   set_al(-500);
   set_state("init");
   
-  add_hook("die_hook", this_object());
-  add_hook("kill_hook", this_object());
   add_response("init","ARRIVE(%1)","$arrive(%1)");  
   
  

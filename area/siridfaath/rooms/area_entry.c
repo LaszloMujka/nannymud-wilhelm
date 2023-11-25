@@ -8,6 +8,12 @@ inherit "/players/wilhelm/area/siridfaath/rooms/outdoor_rooms";
 void reset(int arg) 
 {
   ::reset(arg);
+  //adding toplist to the room
+  object o;
+  o = load_object("/players/wilhelm/area/xplogger/sign.c");
+  if (!environment(o))
+    move_object(o, this_object());
+
   if (arg) 
     return;
 
@@ -29,7 +35,7 @@ void reset(int arg)
 	"large grass fields. The open plain seems to stretch on for miles in "+
 	"all directions. Far off to the west the grassy meadow turns into a "+
 	"forest and to the southeast a huge mountain range climbs up into "+
-	"the sky.");
+	"the sky. There is a strange looking sign planted in the ground.");
     
 // -- Help here -------------------------------------------------------------
 

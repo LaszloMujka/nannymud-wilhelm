@@ -11,7 +11,8 @@ reset(arg){
 		destruct(this_object());
 
 	set_name("plaque");
-	set_short("bronze plaque");
+	add_alias("sign");
+	set_short("");
 	set_long("@my_long()");
 	add_property("non-gettable");
 }

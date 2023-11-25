@@ -58,7 +58,7 @@ read_blackboard() {
     ]),
     "Bloodwood:": ([
       "wilhelm_bloodwood_quest": "The curse of path magic:",
-      "wilhelm_bloodwood_glove": "Find the missing gloves:"
+      "wilhelm_bloodwood_gloves": "Find the missing gloves:"
     ])
   ]);
 
@@ -70,7 +70,10 @@ read_blackboard() {
     res += " |                                     |\n";
     res +=sprintf(" | %-11s %-23s |\n", z, " ");
     foreach(p, m_indices(puzz[z])) {
-      res += " | "+puzz[z][p]+(this_player()->query_puzzle(p)? " ":" not ")+"solved |\n";
+     //s = (this_player()->query_puzzle(puzz[z][p]));
+ 
+     //res += sprintf(" | %-25s%d | \n", puzz[z][p] , s);
+    res += sprintf(" | "+puzz[z][p]+(this_player()->query_puzzle(p)? "     solved":" not solved")+" |\n");
     }
   }
   res += " +-------------------------------------+\n";

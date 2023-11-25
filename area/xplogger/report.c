@@ -97,7 +97,7 @@ string player_report()
 
   for (j = 0, i = (sizeof(pd) - 1); j < 10 && i >= 0; i--)
     if (pointerp(pd[i]) && sizeof(pd[i]) == 5 && stringp(pd[i][0]))
-      if (FINGERD -> playerp(pd[i][0]) && pd[i][0] != "wilhelmjr" && pd[i][0] != "wilhelmii" && pd[i][0] != "wilhelm"  && intp(pd[i][1]))
+      if (FINGERD -> playerp(pd[i][0]) && pd[i][0] != "wilhelmjr" && pd[i][0] != "wilhelmii" && pd[i][0] != "wilhelm"  && pd[i][0] != "giku" && intp(pd[i][1]))
 	{
 	  j++;
 	  res += sprintf("|%-15s  %5d kills ",capitalize(pd[i][0]), pd[i][2]);

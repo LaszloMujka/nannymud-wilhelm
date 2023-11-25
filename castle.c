@@ -42,4 +42,3 @@ reset(arg) {
   PUZZLED -> add_puzzle("wilhelm_bloodwood_quest");
 
 }
-
