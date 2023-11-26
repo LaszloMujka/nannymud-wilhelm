@@ -13,12 +13,14 @@ void reset(int arg)
 
 // -- Settings --------------------------------------------------------------
 
-  set_short("a whirlclaw"),
+  set_short("a whirlclaw");
   set_long("A small, exceptionally quick and nimble creature. The shaggy "+
   "creature is about two feet in height, with long spindly arms that end "+
-  "in sharp, wickedly curved claws."),
+  "in sharp, wickedly curved claws.");
   
   set_name("whirlclaw");
+  set_def_name("the whirlclaw");
+  set_indef_name("a whirlclaw");
   add_alias("creature");
   
   set_race("monster");

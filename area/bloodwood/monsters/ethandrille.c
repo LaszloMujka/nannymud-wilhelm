@@ -13,12 +13,15 @@ void reset(int arg)
 
 // -- Settings --------------------------------------------------------------
 
-  set_short("a ethandrille"),
+  set_short("an ethandrille");
+
   set_long("A wolf-like native to the Blood Wood. It resembles a small "+
   "wolf, with brown-gray fur. Thorns grow around its mouth, and more thorns "+
   "stretch its fur. It looks like it's in pain from the brambles. ");
   
   set_name("ethandrille");
+  set_def_name("the ethandrille");
+  set_indef_name("an ethandrille");
   add_alias("wolf");
   
   set_race("wolf");

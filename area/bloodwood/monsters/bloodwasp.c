@@ -13,11 +13,14 @@ void reset(int arg)
 
 // -- Settings --------------------------------------------------------------
 
-  set_short("a swarm of blood wasps"),
+  set_short("a swarm of blood wasps");
+
   set_long("Blood wasps are aggressive insects that attack in swarms to "+
-  "gather the blood they feed on. Slightly larger than ordinary wasps."),
+  "gather the blood they feed on. Slightly larger than ordinary wasps.");
   
   set_name("blood wasps");
+  set_def_name("the blood wasps");
+  set_indef_name("a blood wasps");
   add_alias("wasps");
   
   set_race("insect");

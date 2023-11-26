@@ -17,9 +17,11 @@ void reset(int arg)
 
 // -- Settings --------------------------------------------------------------
 
-  set_short("@my_short()"),
-  set_long("@my_long()"),
+  set_short("@my_short()");
+  set_long("@my_long()");
   set_name("bone");
+  set_def_name("Bone");
+  set_indef_name("Bone");
   add_alias("janith");
   add_alias("wilhelm_ork");
   add_property("no_die_message");
@@ -69,9 +71,9 @@ void reset(int arg)
 my_short(){
   if(environment() &&
   (environment()->query_property("indoors"))){
-  return ("An ork and a windeling");
+  return ("an ork and a windeling");
   }
-  return ("A really mad ork");
+  return ("a really mad ork");
 } // Short description
 
 my_long(){

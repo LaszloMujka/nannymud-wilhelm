@@ -13,12 +13,15 @@ void reset(int arg)
 
 // -- Settings --------------------------------------------------------------
 
-  set_short("a blood raven"),
+  set_short("a blood raven");
+
   set_long("The blood raven can be distinguished from normal ravens by his "+
   "much larger size and reddish legs. It is observing your every move with "+
-  "dark red eyes. "),
+  "dark red eyes. ");
   
   set_name("blood raven");
+  set_def_name("the blood raven");
+  set_indef_name("a blood raven");
   add_alias("raven");
   
   set_race("raven");

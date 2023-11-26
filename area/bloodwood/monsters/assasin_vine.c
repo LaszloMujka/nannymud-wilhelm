@@ -13,12 +13,15 @@ void reset(int arg)
 
 // -- Settings --------------------------------------------------------------
 
-  set_short("assasin vine"),
+  set_short("assassin vine"),
+
   set_long("This vine looks just like the rest of the long twisted vines in "+
   "the forest, just that this one is alive. It twists and turns trying to loop "+
   "itself around you.");  
   
-  set_name("assasin vine");
+  set_name("assassin vine");
+  set_def_name("the assassin vine");
+  set_indef_name("an assassin vine");
   add_alias("vine");
   
   set_race("plant");

@@ -13,11 +13,14 @@ void reset(int arg)
 
 // -- Settings --------------------------------------------------------------
 
-  set_short("a blood warder"),
+  set_short("a blood warder");
+
   set_long("A long slender elf, standing guard in the forest. Every inch "+
-  "of his body is covered in sharp thorns."),
+  "of his body is covered in sharp thorns.");
   
   set_name("blood warder");
+  set_def_name("the blood warder");
+  set_indef_name("a blood warder");
   add_alias("warder");
   
   set_race("elf");

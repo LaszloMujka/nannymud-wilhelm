@@ -11,11 +11,13 @@ void reset(int arg)
   if (arg)
     return;
 
-  set_short("A small child");
+  set_short("a small child");
   set_long("A short and stocky dwarf child, no more than 3 feet high. Her "+
   "skin is pinkish white and long bushy blond hair. ");
 
   set_name("mirielle");
+  set_def_name("Mirielle");
+  set_indef_name("Mirielle");
   add_alias("dwarf");
   add_alias("girl");
   add_alias("child");

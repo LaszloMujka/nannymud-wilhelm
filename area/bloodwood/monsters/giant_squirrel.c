@@ -13,10 +13,14 @@ void reset(int arg)
 
 // -- Settings --------------------------------------------------------------
 
-  set_short("a giant carnivorous squirrel"),
-  set_long("A massive rodent, nearly five times the size of an ordinary squirrel."),
+  set_short("a giant carnivorous squirrel");
+  set_def_name("the giant carnivorous squirrel");
+  set_indef_name("a giant carnivorous squirrel");
+  set_long("A massive rodent, nearly five times the size of an ordinary squirrel.");
   
   set_name("carnivorous squirrel");
+  set_def_name("the carnivorous squirrel");
+  set_indef_name("a carnivorous squirrel");
   add_alias("squirrel");
   add_alias("giant carnivorous squirrel");
   

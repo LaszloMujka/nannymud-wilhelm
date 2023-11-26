@@ -8,18 +8,20 @@ reset(arg) {
   :: reset(arg);
   if (!arg) {
     set_name("patrochian");
+    set_def_name("Patrochian");
+    set_indef_name("Patrochian");
     add_alias("lizard");
     add_alias("captain");
     set_race("lizardman");
-    set_short("captain Patrochian");
+    set_short("captain patrochian");
     set_long("You are looking at the captain of the ship Breeton. She is of " +
 		      "the name-giver race t'skrang. A huge human sized lizard with " +
 		      "green skin. Her tail is swinging back and forth while she watches "+
 			  "you thoughtfully.");
     set_level(8);
     set_gender(2);
-	set_al(175);
-	add_money(random(15) + 15);
+	  set_al(175);
+	  add_money(random(15) + 15);
     add_object("/players/wilhelm/area/siridfaath/weapons/sword");
     command("wield sword");
 	

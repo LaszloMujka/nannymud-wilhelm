@@ -13,11 +13,14 @@ void reset(int arg)
 
 // -- Settings --------------------------------------------------------------
 
-  set_short("exolasher"),
+  set_short("exolasher");
+
   set_long("The exolashers serve as personal guards for Qheen Alachia. Every inch "+
-  "of his body is covered in sharp thorns."),
+  "of his body is covered in sharp thorns.");
   
   set_name("exolasher");
+  set_def_name("Exolasher");
+  set_indef_name("Exolasher");
   add_alias("guard");
   
   set_race("elf");

@@ -19,6 +19,8 @@ void reset(int arg)
   "skull. About nine feet long including its tail. ");
   
   set_name("ghoul lizard");
+  set_def_name("the ghoul lizard");
+  set_indef_name("a ghoul lizard");
   add_alias("lizard");
 
   set_race("lizard");

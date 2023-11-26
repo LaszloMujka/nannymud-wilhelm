@@ -18,6 +18,8 @@ void reset(int arg)
   "goods from his wagon.");
   
   set_name("lucien");
+  set_def_name("Lucien");
+  set_indef_name("Lucien");
   add_alias("dwarf");
   add_alias("merchant");
   set_race("dwarf");

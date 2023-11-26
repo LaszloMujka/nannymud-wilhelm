@@ -15,7 +15,9 @@ void reset(int arg)
 
 // -- Descriptions ----------------------------------------------------------
 
-  set_short("Xendri the barkeeper");
+  set_short("xendri the barkeeper");
+  set_def_name("Xendri");
+  set_indef_name("Xendri");
   set_long("Standing behind the bar, the short but beautiful dwarf smiles at "+
   "you, when she notices you are looking her way. Her blond hair is long and "+
   "curly and she is wearing a bright red dress.");

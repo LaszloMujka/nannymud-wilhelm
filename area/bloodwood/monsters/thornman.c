@@ -18,8 +18,11 @@ void reset(int arg)
   "appearance, that stands roughly six feet tall.");
   
   set_name("thorn man");
+  set_def_name("the thorn man");
+  set_indef_name("a thorn man");
   add_alias("thornman");
   add_alias("thorn");
+  add_alias("man");
   
   set_race("magic");
   set_gender(1);

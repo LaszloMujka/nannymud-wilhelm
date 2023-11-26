@@ -21,13 +21,15 @@ reset(arg)
   
 // -- Descriptions ----------------------------------------------------------
 
-  set_short("Issaren the librarian");
+  set_short("issaren the librarian");
   set_long("The old dwarf is sitting behind his desk reading from a book. "+
     "He has a large white beard and big reading glasses.");
 
 // -- Settings --------------------------------------------------------------
 
   set_name("issaren");
+  set_def_name("Issaren");
+  set_indef_name("Issaren");
   add_alias("librarian");
   add_alias("man");
   add_alias("elderly man");

@@ -12,7 +12,9 @@ void reset(int arg)
   if (arg)
     return;
 
-  set_short("A troll guard");
+  set_short("a troll guard");
+  set_def_name("the troll guard");
+  set_indef_name("a troll guard");
   set_long("This giant of a troll is towering over you, at least nine feet "+
   "tall. His long brown hair is standing out in all directions, but his beard "+
   "is nicely braided. In his forehead two horns is twisting out in different "+

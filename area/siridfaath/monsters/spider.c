@@ -12,6 +12,8 @@ void reset(int arg)
     return;
 
   set_short("a big spider");
+  set_def_name("the spider");
+  set_indef_name("a spider");
   set_long("This huge spider is about six feet in length, the big legs "+
     "looks like sharp weapons, and his body is crystal clear so you can "+
     "clearly see what it had for dinner.");

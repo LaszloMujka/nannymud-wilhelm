@@ -17,6 +17,8 @@ void reset(int arg)
   "activities in the realm. He looks grumpy even for dwarf standards.");
   
   set_name("lorm");
+  set_def_name("Lorm");
+  set_indef_name("Lorm");
   add_alias("dwarf");
   set_race("dwarf");
   set_gender(1);

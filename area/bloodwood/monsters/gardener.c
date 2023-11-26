@@ -18,6 +18,8 @@ void reset(int arg)
   "Every inch of his body is covered in sharp thorns.");
   
   set_name("gardener");
+  set_def_name("the gardener");
+  set_indef_name("a gardener");
   add_alias(({"groundskeeper", "keeper", "grounds keeper"})); //danny 2022-08-13 
   set_race("elf");
   set_gender(1);

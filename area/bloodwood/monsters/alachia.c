@@ -13,11 +13,14 @@ void reset(int arg)
 
 // -- Settings --------------------------------------------------------------
 
-  set_short("alachia, the elf queen"),
+  set_short("alachia, the elf queen");
+
   set_long("A long slender elf, watching you carefully. Her beauty is "+
-  "legendary undiminished by the tiny thorns that pierce her delicate skin."),
+  "legendary undiminished by the tiny thorns that pierce her delicate skin.");
   
   set_name("alachia");
+  set_def_name("Alachia");
+  set_indef_name("Alachia");
   add_alias("queen");
   
   set_race("elf");
@@ -54,7 +57,8 @@ arrive(who) {
   foreach (ob, deep_inventory(this_player())) 
     if (ob -> id("wilhelm_bloodwood_rose")) {
 	attack_object(w);	  	
-	return line_break(" Queen says: How did you steal my rose! Guards!");}
-    }
+	return line_break(" Queen says: How did you steal my rose! Guards!");
+  }
+}
 
 
