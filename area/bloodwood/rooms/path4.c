@@ -27,7 +27,7 @@ void reset(int arg)
   add_property("outdoors");
   add_property("wilhelm_path4");
   add_light(1);
-  add_exit("west", "path5", 1, "do_west");
+  add_exit("west", "path5", "west", "do_west");
   add_exit("east", "path3");
   add_exit("southwest", "meadow1");
   add_exit("north", "meadow2");
@@ -162,21 +162,13 @@ cmd_push()
 
 do_west() {
   
-  if ((this_player()-> query_property("wilhelm_bloodwood_horn")) ||
-     (this_player()-> query_property("wilhelm_bloodwood_quest")) ||
-	 (this_player()-> query_puzzle("wilhelm_bloodwood_quest")))
-  {
-     this_player()->move_player("west",
-  "/players/wilhelm/area/bloodwood/rooms/path5");
-  return;
+  if (   !this_player()-> query_property("wilhelm_bloodwood_horn")
+  && !this_player()-> query_property("wilhelm_bloodwood_quest")
+  && !this_player()-> query_puzzle("wilhelm_bloodwood_quest")) {
+    this_player()->add_property("wilhelm_bloodwood_horn");
+    "/std/msg"->msg("As \bPRON walk\b$ along the path toward the forest, you hear the sound of a horn. Someone has detected \bpron!\n", this_player());
   }
-  else
-	this_player()->add_property("wilhelm_bloodwood_horn");
-  this_player()->move_player("west",
-  "/players/wilhelm/area/bloodwood/rooms/path5");
-  write("As you walk along the path toward the forest, you hear "+
-  "the sound of a horn. Someone has detected you!\n");  
-  return;
+return 0;
 	  
 }
 

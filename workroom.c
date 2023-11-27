@@ -32,7 +32,7 @@ void reset(int arg)
 
     set_short(capitalize(NAME) + "'s workroom");
     set_long("You are standing inside " + capitalize(NAME) + "'s workroom. " +
-	     "It appears to be an abandoned circus tent. A map hangs on wall. ");
+	     "It appears to be an abandoned circus tent. On one of the walls there is a map and on the other wall there is a sign. ");
 
 	add_item(({ "map" }), "A big map of the area. Try 'study map'");
 	//add_item("plaque", "Read plaque ?");

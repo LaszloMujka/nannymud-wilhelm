@@ -16,8 +16,7 @@ void reset(int arg)
   add_property("indoors");
   add_light(1);
   add_exit("south", "courtyard");
-  add_exit("up", "palace2", 0,
-	     "@check_exit()");
+  add_exit("up", "palace2", "up","@check_exit()");
   
 // -- Description and settings -------------------------------------------
 
@@ -60,19 +59,9 @@ void reset(int arg)
 // -- Commands output --------------------------------------------------------
 
 check_exit() {
-  if(this_player() -> short() && present("queen")) {
-  return "The queen blocks the path.\b|" +
-  "\bPRON tries to go up, but the queen blocks the way!";
-  }
-  if (this_player()-> query_property("wilhelm_bloodwood_quest")){
-  this_player()->move_player("up",
-  "/players/wilhelm/area/bloodwood/rooms/palace2");	  
-  return;
-  }
-  if (this_player()-> query_property("wilhelm_bloodwood_horn")){
-  this_player()->move_player("up",
-  "/players/wilhelm/area/bloodwood/rooms/palace2");	  
-  return;
+  if (present("queen", this_object())) {
+    write("The queen blocks the path.\n");
+    return 1;
   }
   this_player()->add_property("wilhelm_bloodwood_horn");	
   write ("You feel cursed and the palace walls seem to shift around you.\n");

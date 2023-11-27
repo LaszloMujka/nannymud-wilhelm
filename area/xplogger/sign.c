@@ -10,9 +10,10 @@ reset(arg){
 	if (_isclone(this_object()))
 		destruct(this_object());
 
-	set_name("plaque");
+	set_name("sign");
 	add_alias("sign");
-	set_short("");
+	add_alias("plaque");
+	//set_short("");
 	set_long("@my_long()");
 	add_property("non-gettable");
 }
