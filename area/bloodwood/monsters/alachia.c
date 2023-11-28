@@ -52,12 +52,16 @@ void reset(int arg)
 
 
 arrive(who) {
-  object ob,w;
-  w = present(who, environment(this_object()));
+  object ob;
+  object w = present(who, environment(this_object()));
+
+  if (!objectp(w))
+    return;
+
   foreach (ob, deep_inventory(this_player())) 
     if (ob -> id("wilhelm_bloodwood_rose")) {
-	attack_object(w);	  	
-	return line_break(" Queen says: How did you steal my rose! Guards!");
+	    attack_object(w);	
+      "std/msg" -> msg("Queen yells: How did you steal my rose? Guards!");  	 
   }
 }
 

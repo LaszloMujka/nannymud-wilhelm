@@ -35,8 +35,7 @@ void reset(int arg)
   add_response("init","ARRIVE(%1)","$arrive(%1)", "aggressive");
   add_response("aggressive","ARRIVE(%1)","$arrive2(%1)");
   
- add_timeout("aggressive", 20, "Bloodwarder says: Strangers are not welcome here.\n",
-   "init");
+ add_timeout("aggressive", 20, "Bloodwarder says: Strangers are not welcome here.\n","init");
   
 // -- Items -----------------------------------------------------------------
 
@@ -58,40 +57,39 @@ void reset(int arg)
 }
 
 arrive(who) {
-  object w;
+  object  w = present(who, environment(this_object()));
 
-  if (!stringp(who))
+  if (!objectp(w))
     return;
-  w = present(who, environment(this_object()));
-  if (objectp(w) && this_player()-> query_property("wilhelm_bloodwood_quest") ) {
-      return 1;      
-	  }
-  if (objectp(w) && this_player()-> query_property("wilhelm_bloodwood_horn") ) {
-      return line_break("Warder says: You are not welcome in our forest, leave now!");      
-	  }
-	else
-      tell_room(environment(),"Warder says: How did you sneak into our forest!\n");		
-	  this_player()->add_property("wilhelm_bloodwood_horn");	
-      write ("You feel cursed and the forest seems to shift.\n");
-  return 1;
+
+  if (this_player()-> query_puzzle("wilhelm_bloodwood_quest") ) {
+    return;      
+	}
+  if (this_player()-> query_property("wilhelm_bloodwood_horn") ) {
+    write("Warder says: You are not welcome in our forest, leave now! \n");  
+    return;
+	}
+  tell_room(environment(),"Warder says: How did you sneak into our forest!\n");		
+	this_player()->add_property("wilhelm_bloodwood_horn");	
+  write ("You feel cursed and the forest seems to shift.\n");
 }
 
 
 
 
 arrive2(who) {
-  object w;
+  object  w = present(who, environment(this_object()));
 
-  if (!stringp(who))
+  if (!objectp(w))
     return;
-  w = present(who, environment(this_object()));
-  if (objectp(w) && this_player()-> query_property("wilhelm_bloodwood_horn") ) {
+
+  if (this_player()-> query_property("wilhelm_bloodwood_horn") ) {
     write ("Warder says: I told you to leave!\n");
-	attack_object(w);
+	  attack_object(w);
+    return;
   }
-  else
 	this_player()->add_property("wilhelm_bloodwood_horn");	
-    attack_object(w);	  
+  attack_object(w);	  
 } 
 
 

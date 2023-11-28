@@ -55,24 +55,19 @@ void reset(int arg)
 }
 
 arrive(who) {
-  object w;
+  object  w = present(who, environment(this_object()));
 
-  if (!stringp(who))
+  if (!objectp(w))
     return;
-  w = present(who, environment(this_object()));
-  if (objectp(w) && this_player()-> query_property("wilhelm_bloodwood_quest") ) {
-    return 1;      
+
+  if (this_player()-> query_puzzle("wilhelm_bloodwood_quest") ) {
+    return;      
 	}
-  if (objectp(w) && this_player()-> query_property("wilhelm_bloodwood_horn") ) {
-	tell_room(environment(this_object()),"Warder says: You are not welcome in our forest, leave now!\n");
-    return 1;  
+  if (this_player()-> query_property("wilhelm_bloodwood_horn") ) {
+    write("Warder says: You are not welcome in our forest, leave now! \n");  
+    return;
 	}
-	else 
-	tell_room(environment(this_object()),"Warder says: How did you sneak into our forest!\n");	
-    tell_room(environment(this_object()),"You feel cursed and the forest seems to shift.\n");
+  tell_room(environment(),"Warder says: How did you sneak into our forest!\n");		
 	this_player()->add_property("wilhelm_bloodwood_horn");	
-  return 1;
+  write ("You feel cursed and the forest seems to shift.\n");
 }
-
-
-

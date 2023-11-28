@@ -34,8 +34,8 @@ void reset(int arg)
   
   
 // -- Responses -------------------------------------------------------------
-  
   add_response("init","ARRIVE(%1)","$arrive(%1)");
+  //add_response("aggressive","ARRIVE(%1)","$arrive(%1)");
 
   
 // -- Items -----------------------------------------------------------------
@@ -57,27 +57,52 @@ void reset(int arg)
 
 }
 
+// arrive(who) {
+//   object ob,w;
+
+//   if (!stringp(who))
+//     return;
+//   w = present(who, environment(this_object()));
+//   foreach (ob, deep_inventory(this_player())) 
+//   if (ob -> id("wilhelm_bloodwood_rose")) {
+// 	attack_object(w);	  	
+// 	return line_break(" Exolasher says: Thief!");
+//     }
+//   if (objectp(w) && this_player()-> query_property("wilhelm_bloodwood_quest") ) {
+//       return 1;      
+// 	  }
+//   if (objectp(w) && this_player()-> query_property("wilhelm_bloodwood_horn") ) {
+//       return line_break("Exolasher says: You are not welcome in our forest, leave now!");      
+// 	  }
+// 	else 
+// 	  tell_room(environment(),"Exolasher says: How did you sneak into our forest!\n");
+// 	  this_player()->add_property("wilhelm_bloodwood_horn");	
+//       write ("You feel cursed and the forest seems to shift.\n");
+//   return 1;
+// }
+
 arrive(who) {
-  object ob,w;
+  object  w = present(who, environment(this_object()));
+  object ob;
 
-  if (!stringp(who))
+  if (!objectp(w))
     return;
-  w = present(who, environment(this_object()));
-  foreach (ob, deep_inventory(this_player())) 
-  if (ob -> id("wilhelm_bloodwood_rose")) {
-	attack_object(w);	  	
-	return line_break(" Exolasher says: Thief!");
-    }
-  if (objectp(w) && this_player()-> query_property("wilhelm_bloodwood_quest") ) {
-      return 1;      
-	  }
-  if (objectp(w) && this_player()-> query_property("wilhelm_bloodwood_horn") ) {
-      return line_break("Exolasher says: You are not welcome in our forest, leave now!");      
-	  }
-	else 
-	  tell_room(environment(),"Exolasher says: How did you sneak into our forest!\n");
-	  this_player()->add_property("wilhelm_bloodwood_horn");	
-      write ("You feel cursed and the forest seems to shift.\n");
-  return 1;
-}
 
+  foreach (ob, deep_inventory(this_player())) 
+  if (ob -> id("wilhelm_bloodwood_rose")) { 	
+	  "std/msg" -> msg("Exolasher yells: Thief!\n");
+    attack_object(w);
+    return;
+  }
+
+  if (this_player()-> query_puzzle("wilhelm_bloodwood_quest") ) {
+    return;      
+	}
+  if (this_player()-> query_property("wilhelm_bloodwood_horn") ) {
+    write("Exolasher says: You are not welcome in our forest, leave now! \n");  
+    return;
+	}
+  tell_room(environment(),"Exolasher says: How did you sneak into our forest!\n");		
+	this_player()->add_property("wilhelm_bloodwood_horn");	
+  write ("You feel cursed and the forest seems to shift.\n");
+}

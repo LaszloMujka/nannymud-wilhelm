@@ -58,61 +58,50 @@ void reset(int arg)
 said (who, word) {
   if (sscanf(lower_case(word),"%*shelp%*s") == 2) {
     WSAY("With what? Be more specific, I got things to do.");
-    return 1;
   }
   if (sscanf(lower_case(word),"%*sbuy%*s") == 2) {
     WSAY("Does this look like a store!?");
-    return 1;
   }
   if (sscanf(lower_case(word),"%*ssiridfaath%*s") == 2) {
     WSAY("That's the small village right outside.");
-    return 1;
   } 
   if (sscanf(lower_case(word),"%*sbloodwood%*s") == 2) {
     WSAY("Bloodwood is the forest far off to the west.");
-    return 1;
   }
-  if ((sscanf(lower_case(word),"%*skey%*s") == 2) ||
-      sscanf(lower_case(word),"%*slost%*s") == 2){
+  if ((sscanf(lower_case(word),"%*skey%*s") == 2) || sscanf(lower_case(word),"%*slost%*s") == 2){
   	if(this_player()->query_puzzle("wilhelm_merchant_key")) {
-	WSAY("I see you found the lost key. Good work!");
-	return 1;}
-	else
-	WSAY("Someone in the village has lost a key, ask around!");
-	return 1;
-  }
-  if ((sscanf(lower_case(word),"%*sork%*s") == 2) ||
-      sscanf(lower_case(word),"%*sangry%*s") == 2){
+	    WSAY("I see you found the lost key. Good work!");
+	  }
+	  else
+	    WSAY("Someone in the village has lost a key, ask around!");
+	
+    }
+  if ((sscanf(lower_case(word),"%*sork%*s") == 2) || sscanf(lower_case(word),"%*sangry%*s") == 2){
   	if(this_player()->query_puzzle("wilhelm_puzzle_bone")) {
-	WSAY("Did you see his face?! Haha, nice work!");
-	return 1;}
-	else
-	WSAY("Nothing more fun the pissing off and ork! Try the one in the tavern.");
-	return 1;
-  }
-    if ((sscanf(lower_case(word),"%*spath magic%*s") == 2) ||
-      sscanf(lower_case(word),"%*smagic%*s") == 2){
-  	if(this_player()->query_puzzle("wilhelm_bloodwood_quest")) {
-	WSAY("Wow, your like a ninja! Good work!");
-	return 1;}
-	else
-	WSAY("I can't help you. The captain on the dock might know something.");
-	return 1;
-  }
-      if ((sscanf(lower_case(word),"%*sgloves%*s") == 2) ||
-      sscanf(lower_case(word),"%*sglove%*s") == 2){
-  	if(this_player()->query_puzzle("wilhelm_bloodwood_glove")) {
-	WSAY("I can't believe you helped a bloodelf!");
-	write("Lorm spits.");
-	return 1;}
-	else
-	WSAY("A bloodelf lost his gloves, do we even care?.");
-	return 1;
-  }
-      if (sscanf(lower_case(word),"%*swilhelm%*s") == 2) {
-    WSAY("Don't mention that name!");
+	    WSAY("Did you see his face?! Haha, nice work!");
+	  }
+	  else
+	    WSAY("Nothing is more fun than pissing off and ork! Try the one in the tavern.");
+    }
+    if (sscanf(lower_case(word),"%*smagic%*s") == 2){
+  	  if(this_player()->query_puzzle("wilhelm_bloodwood_quest")) {
+	      WSAY("Wow, your like a ninja! Good work!");
+	    }
+	  else
+	    WSAY("I can't help you. The captain on the dock might know something.");
+	
+    }
+    if (sscanf(lower_case(word),"%*sglove%*s") == 2){
+  	  if(this_player()->query_puzzle("wilhelm_bloodwood_gloves")) {
+	      WSAY("I can't belive you helped a bloodelf!");
+	      write("Lorm spits.");
+	    }
+	    else
+	      WSAY("A bloodelf lost his gloves, do we even care?");
+    }
+    if (sscanf(lower_case(word),"%*swilhelm%*s") == 2) {
+      WSAY("Don't mention that name!");
     "/std/msg"->msg("Lorm throws a pie in \bposs face.\n");
-    return 1;
   } // Say wilhelm 
 }  
 

@@ -161,12 +161,14 @@ cmd_push()
 
 
 do_west() {
+  string genus;
   
   if (   !this_player()-> query_property("wilhelm_bloodwood_horn")
   && !this_player()-> query_property("wilhelm_bloodwood_quest")
   && !this_player()-> query_puzzle("wilhelm_bloodwood_quest")) {
     this_player()->add_property("wilhelm_bloodwood_horn");
-    "/std/msg"->msg("As \bPRON walk\b$ along the path toward the forest, you hear the sound of a horn. Someone has detected \bpron!\n", this_player());
+
+    "/std/msg"->msg("As \bPRON walk\b$ along the path toward the forest, you hear the sound of a horn. Someone has detected \bnewobj.\n", this_player());
   }
 return 0;
 	  
