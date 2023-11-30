@@ -46,7 +46,7 @@ void reset(int arg)
 	"You can't cut your way through the hedge.\n");	
   add_item_cmd("enter", "hedge", 
 	"There aren't any openings in the hedge to enter.\n");	
-  add_item_cmd("jump", "hedge", "@cmd_jump_hedge()");
+  add_item_cmd("jump", "hedge", "The hedge is too high to jump.");
   add_item_cmd("search", "hedge", 
 	"You search around the hedge, but find nothing of interest.\n");	
   add_item_cmd("climb", "hedge", "@cmd_climb_hedge()");	
@@ -73,13 +73,6 @@ cmd_climb_hedge()
   else
 	return line_break("The hedge is too full of sharp thorns to be able to climb. If you can jump high enough you might be able to return. ");
 }	
-
-cmd_jump_hedge()
-	{
-    
-      this_player()->move_player("over the hedge","/players/wilhelm/area/bloodwood/rooms/gardens1");
-      return 1;
-  }	
 
 // -- Random happenings -------------------------------------------------------
 

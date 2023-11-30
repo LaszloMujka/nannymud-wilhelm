@@ -40,7 +40,7 @@ void reset(int arg)
     "These paths twist and turn and end and begin again countless times.");
   add_item(({ "hedge" }), 
     "The labyrinth os thorney hedges grow high above you in all directions. "+
-	"Covered in vines and beautiful flowers. You cannot halpe but notice that the hedge is not that tall.");
+	"Covered in vines and beautiful flowers.");
   add_item(({ "vines","vines" }), 
     "Flowering rose vines encircle the hedges, almost seeming to strangle them.");  	
   add_item(({ "flower","flowers","rose","roses" }), 
@@ -65,7 +65,7 @@ void reset(int arg)
   add_command("search %s", "@cmd_search()");		
   add_command("search bush", "@cmd_search_bush()");
   add_command(({ "follow", "follow prints", "follow footprints" }), "@do_path()");
-  add_item_cmd("jump", "hedge", "@cmd_jump_hedge()");
+  add_item_cmd("jump", "hedge", "The hedge is too high to jump.");
   add_item_cmd("climb", "hedge", "@cmd_climb_hedge()");	
   }
 
@@ -168,13 +168,6 @@ cmd_climb_hedge()
   else
 	return line_break("The hedge is too full of sharp thorns to be able to climb.");
 }	
-
-cmd_jump_hedge()
-	{
-    
-      this_player()->move_player("over the hedge","/players/wilhelm/area/bloodwood/rooms/gardens3");
-      return 1;
-  }	
 
 // -- Random happenings -------------------------------------------------------
 
