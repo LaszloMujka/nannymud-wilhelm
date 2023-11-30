@@ -29,9 +29,9 @@ void reset(int arg)
   add_item(({ "path","paths"}), 
     "These paths twist and turn and end and begin again countless times.");
   add_item(({ "hedge" }), 
-    "The labyrinth os thorney hedges grow high above you in all directions. "+
-	"Covered in vines and beautiful flowers.The north side seems to have grown "+
-	"even thicker and there is no way back out.");
+    "The labyrinth of thorney hedges grow high above you in all directions. "+
+	"Covered in vines and beautiful flowers. The north side seems to have grown "+
+	"even thicker and the south side is lower, there might be a way out.");
   add_item(({ "vines","vines" }), 
     "Flowering rose vines encircle the hedges, almost seeming to strangle them.");  	
   add_item(({ "flower","flowers","rose","roses" }), 
@@ -46,8 +46,7 @@ void reset(int arg)
 	"You can't cut your way through the hedge.\n");	
   add_item_cmd("enter", "hedge", 
 	"There aren't any openings in the hedge to enter.\n");	
-  add_item_cmd("jump", "hedge", 
-	"The hedge is too high to jump.\n");
+  add_item_cmd("jump", "hedge", "@cmd_jump_hedge()");
   add_item_cmd("search", "hedge", 
 	"You search around the hedge, but find nothing of interest.\n");	
   add_item_cmd("climb", "hedge", "@cmd_climb_hedge()");	
@@ -69,11 +68,18 @@ cmd_climb_hedge()
   if (eq)  
     obj=eq["glove"];
 	if (obj && obj -> id("wilhelm_gardener_gloves")) {
-    return line_break ("Even withe protective gloves, the hedge is too full of sharp thorns to be "+
-	"able to climb.");}	
+    return line_break ("Even with the protective gloves, the hedge is too full of sharp thorns to be "+
+	"able to climb. Maybe you can jump high enough to jump over the hedge ?");}	
   else
-	return line_break("The hedge is too full of sharp thorns to be able to climb.");
+	return line_break("The hedge is too full of sharp thorns to be able to climb. If you can jump high enough you might be able to return. ");
 }	
+
+cmd_jump_hedge()
+	{
+    
+      this_player()->move_player("over the hedge","/players/wilhelm/area/bloodwood/rooms/gardens1");
+      return 1;
+  }	
 
 // -- Random happenings -------------------------------------------------------
 
