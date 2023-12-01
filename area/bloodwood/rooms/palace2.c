@@ -2,7 +2,7 @@
 
 inherit "/std/room";
 #define TD "/obj/util/timed"
-#define LOGGER load_object("/players/wilhelm/simple_logger")
+//#define LOGGER load_object("/players/wilhelm/simple_logger")
 
 void reset(int arg) 
 {
@@ -58,18 +58,18 @@ void reset(int arg)
 
 // -- Commands output --------------------------------------------------------
 
-check_exit() {
-  if ((this_player()-> query_property("wilhelm_bloodwood_quest")) ||
-     (this_player()-> query_puzzle("wilhelm_bloodwood_quest")))
-  {
-    this_player()->move_player("up",
-    "/players/wilhelm/area/bloodwood/rooms/palace3");	  
-  return;
-  }	
-  if (this_player()-> query_property("wilhelm_bloodwood_horn")){
-  return line_break("The plants and trees around you seem to shift and sway "+
-  "blocking the path up.");
-  }
-}
+// check_exit() {
+//   if ((this_player()-> query_property("wilhelm_bloodwood_quest")) ||
+//      (this_player()-> query_puzzle("wilhelm_bloodwood_quest")))
+//   {
+//     this_player()->move_player("up",
+//     "/players/wilhelm/area/bloodwood/rooms/palace3");	  
+//   return;
+//   }	
+//   if (this_player()-> query_property("wilhelm_bloodwood_horn")){
+//   return line_break("The plants and trees around you seem to shift and sway "+
+//   "blocking the path up.");
+//   }
+// }
 
 // -- Random happenings -------------------------------------------------------

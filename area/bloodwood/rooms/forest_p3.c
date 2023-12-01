@@ -2,7 +2,7 @@
 
 inherit "/players/wilhelm/area/siridfaath/rooms/outdoor_rooms";
 #define TD "/obj/util/timed"
-#define LOGGER load_object("/players/wilhelm/simple_logger")
+//#define LOGGER load_object("/players/wilhelm/simple_logger")
 
 void reset(int arg) 
 {
@@ -17,8 +17,8 @@ void reset(int arg)
   add_light(1);
   add_exit("southeast", "forest_p2");
   add_exit("north", "forest_p4");
-  add_hidden_exit("south", "forest8", "into the forest","check_exit_s");
-  add_hidden_exit("east", "forest26", "east, into the forest","check_exit_e");
+  add_hidden_exit("south", "forest8", "into the forest","check_exit");
+  add_hidden_exit("east", "forest26", "east, into the forest","check_exit");
   
 // -- Description and settings -------------------------------------------
 

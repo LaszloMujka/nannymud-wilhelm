@@ -2,7 +2,7 @@
 
 inherit "/players/wilhelm/area/siridfaath/rooms/outdoor_rooms";
 #define TD "/obj/util/timed"
-#define LOGGER load_object("/players/wilhelm/simple_logger")
+//#define LOGGER load_object("/players/wilhelm/simple_logger")
 #include "/players/wilhelm/area/macros.h";
 
 int exa_forest,cut_vine,enter_opening,rope;

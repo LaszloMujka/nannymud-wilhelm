@@ -2,7 +2,7 @@
 
 inherit "/players/wilhelm/area/siridfaath/rooms/outdoor_rooms";
 #define TD "/obj/util/timed"
-#define LOGGER load_object("/players/wilhelm/simple_logger")
+//#define LOGGER load_object("/players/wilhelm/simple_logger")
 
 void reset(int arg) 
 {
@@ -92,12 +92,12 @@ cmd_enter()
 
 check_exit() {
 	
-  if (this_player()-> query_property("wilhelm_bloodwood_quest")){
-    this_player()->move_player("southeast",
-    "/players/wilhelm/area/bloodwood/rooms/courtyard");	  
-  return;
-  }		
-  if (!this_player()-> query_property("wilhelm_bloodwood_horn")){
+  // if (this_player()-> query_property("wilhelm_bloodwood_quest")){
+  //   this_player()->move_player("southeast",
+  //   "/players/wilhelm/area/bloodwood/rooms/courtyard");	  
+  // return;
+  // }		
+  if (!this_player()-> query_property("wilhelm_bloodwood_horn") || (!this_player()-> query_property("wilhelm_bloodwood_quest"))){
   return line_break("The palace walls are right in front of you. You have managed to get "+
   "this far without any of the bloodelfs noticing your presence. If you enter the "+
   "courtyard you will surely get caught. Do enter courtyard if you are sure. ");

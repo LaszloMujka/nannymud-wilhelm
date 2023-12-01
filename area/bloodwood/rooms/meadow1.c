@@ -2,7 +2,7 @@
 
 inherit "/players/wilhelm/area/siridfaath/rooms/outdoor_rooms";
 #define TD "/obj/util/timed"
-#define LOGGER load_object("/players/wilhelm/simple_logger")
+//#define LOGGER load_object("/players/wilhelm/simple_logger")
 #define BOULDER "/players/wilhelm/area/bloodwood/obj/boulder"
 
 object boulder = load_object("/players/wilhelm/area/bloodwood/obj/boulder");
@@ -122,8 +122,8 @@ do_northeast() {
   
   if (this_player()-> query_property("wilhelm_climb_boulder")){
     this_player()->remove_property("wilhelm_climb_boulder");
-	this_player()->move_player("northeast",
-  "/players/wilhelm/area/bloodwood/rooms/path4");
+	// this_player()->move_player("northeast",
+  // "/players/wilhelm/area/bloodwood/rooms/path4");
   write("You jump down from the large boulder and walk northeast.\n");
   return;
   }

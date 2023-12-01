@@ -2,7 +2,7 @@
 
 inherit "/players/wilhelm/area/siridfaath/rooms/outdoor_rooms";
 #define TD "/obj/util/timed"
-#define LOGGER load_object("/players/wilhelm/simple_logger")
+//#define LOGGER load_object("/players/wilhelm/simple_logger")
 
 void reset(int arg) 
 {
@@ -120,4 +120,30 @@ call_out("weather", 180);
   else
     tell_room(this_object(), 
       night_message[random(sizeof(night_message))] + "\n");
+}
+
+check_exit() {
+  if (this_player()->query_npc() && creator(this_player())=="wilhelm"){
+    return 1;
+  }	
+  if ((this_player()-> query_property("wilhelm_bloodwood_quest")) ||
+     (this_player()-> query_puzzle("wilhelm_bloodwood_quest")))
+  {
+    this_player()->move_player("southwest",
+    "/players/wilhelm/area/bloodwood/rooms/forest10");	  
+  return;
+  }	
+  if (this_player()-> query_property("wilhelm_bloodwood_horn")){
+  return line_break("The plants and trees around you seem to shift and sway "+
+  "blocking the path southwest.");
+  }
+}
+
+check_horn_exit() {
+
+  if (!this_player()-> query_property("wilhelm_bloodwood_horn")){
+    write ("You feel unsafe walking onto the forest path, someone might see you.\n");	  
+    return 0;
+  }
+
 }

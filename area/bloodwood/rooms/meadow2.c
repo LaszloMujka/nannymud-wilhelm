@@ -2,7 +2,7 @@
 
 inherit "/players/wilhelm/area/siridfaath/rooms/outdoor_rooms";
 #define TD "/obj/util/timed"
-#define LOGGER load_object("/players/wilhelm/simple_logger")
+//#define LOGGER load_object("/players/wilhelm/simple_logger")
 #define BOULDER "/players/wilhelm/area/bloodwood/obj/boulder"
 #include "/players/wilhelm/area/macros.h";
 

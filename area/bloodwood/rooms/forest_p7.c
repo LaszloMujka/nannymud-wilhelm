@@ -2,7 +2,7 @@
 
 inherit "/players/wilhelm/area/siridfaath/rooms/outdoor_rooms";
 #define TD "/obj/util/timed"
-#define LOGGER load_object("/players/wilhelm/simple_logger")
+//#define LOGGER load_object("/players/wilhelm/simple_logger")
 
 void reset(int arg) 
 {
@@ -17,8 +17,8 @@ void reset(int arg)
   add_light(1);
   add_exit("east", "forest_p6");
   add_exit("west", "forest_p8");
-  add_hidden_exit("north", "forest14", "north, into the forest","check_exit_n");
-  add_hidden_exit("southeast", "forest10", "southeast, into the forest","check_exit_se");
+  add_hidden_exit("north", "forest14", "north, into the forest","check_exit");
+  add_hidden_exit("southeast", "forest10", "southeast, into the forest","check_exit");
   
 // -- Description and settings -------------------------------------------
 
@@ -81,37 +81,37 @@ make_sky() {
 
 // -- Commands output --------------------------------------------------------
 
-check_exit_n() {
-  if (this_player()->query_npc() && creator(this_player())=="wilhelm"){
-    return 1;
-  }
-  if ((this_player()-> query_property("wilhelm_bloodwood_quest")) ||
-     (this_player()-> query_puzzle("wilhelm_bloodwood_quest")))
-  {
-    this_player()->move_player("north",
-    "/players/wilhelm/area/bloodwood/rooms/forest14");	  
-  return;
-  }	
-  if (this_player()-> query_property("wilhelm_bloodwood_horn")){
-  return line_break("The plants and trees around you seem to shift and sway "+
-  "blocking the path north.");
-  }
-}
-check_exit_se() {
-  if (this_player()->query_name()=="blood warder"){
-  return 1;
-  }	
-  if ((this_player()-> query_property("wilhelm_bloodwood_quest")) ||
-     (this_player()-> query_puzzle("wilhelm_bloodwood_quest")))
-  {
-    this_player()->move_player("southeast",
-    "/players/wilhelm/area/bloodwood/rooms/forest10");	  
-  return;
-  }	
-  if (this_player()-> query_property("wilhelm_bloodwood_horn")){
-  return line_break("The plants and trees around you seem to shift and sway "+
-  "blocking the path southeast.");
-  }
-}
+// check_exit_n() {
+//   if (this_player()->query_npc() && creator(this_player())=="wilhelm"){
+//     return 1;
+//   }
+//   if ((this_player()-> query_property("wilhelm_bloodwood_quest")) ||
+//      (this_player()-> query_puzzle("wilhelm_bloodwood_quest")))
+//   {
+//     this_player()->move_player("north",
+//     "/players/wilhelm/area/bloodwood/rooms/forest14");	  
+//   return;
+//   }	
+//   if (this_player()-> query_property("wilhelm_bloodwood_horn")){
+//   return line_break("The plants and trees around you seem to shift and sway "+
+//   "blocking the path north.");
+//   }
+// }
+// check_exit_se() {
+//   if (this_player()->query_name()=="blood warder"){
+//   return 1;
+//   }	
+//   if ((this_player()-> query_property("wilhelm_bloodwood_quest")) ||
+//      (this_player()-> query_puzzle("wilhelm_bloodwood_quest")))
+//   {
+//     this_player()->move_player("southeast",
+//     "/players/wilhelm/area/bloodwood/rooms/forest10");	  
+//   return;
+//   }	
+//   if (this_player()-> query_property("wilhelm_bloodwood_horn")){
+//   return line_break("The plants and trees around you seem to shift and sway "+
+//   "blocking the path southeast.");
+//   }
+// }
 
 // -- Random happenings -------------------------------------------------------

@@ -3,7 +3,7 @@
 
 inherit "/players/wilhelm/area/bloodwood/rooms/path_rooms";
 #define TD "/obj/util/timed"
-#define LOGGER load_object("/players/wilhelm/simple_logger")
+//#define LOGGER load_object("/players/wilhelm/simple_logger")
 int axef;
 
 void reset(int arg) 

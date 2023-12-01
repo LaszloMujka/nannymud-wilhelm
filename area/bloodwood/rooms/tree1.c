@@ -3,7 +3,7 @@
 inherit "/players/wilhelm/area/siridfaath/rooms/outdoor_rooms";
 #define TD "/obj/util/timed"
 #define BRANCH "/players/wilhelm/area/bloodwood/branch1"
-#define LOGGER load_object("/players/wilhelm/simple_logger")
+//#define LOGGER load_object("/players/wilhelm/simple_logger")
 
 int where_is_branch;
 mapping seen_branch;
