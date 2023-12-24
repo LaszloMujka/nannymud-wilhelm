@@ -71,7 +71,7 @@ scout(foo,arg) {
    else {
       exit = exits[exit];
    }
-   write ("You see:/n");
+   write ("You see:\n");
    write("/obj/look"->describe_inventory(load_object
   (exit), 1, this_player()));
   

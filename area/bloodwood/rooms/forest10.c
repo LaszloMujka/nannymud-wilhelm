@@ -47,46 +47,47 @@ exit()
 
 // check_exit_n() {
 
-//   if (this_player()-> query_property("wilhelm_bloodwood_quest")){
-//       this_player()->move_player("north",
-//       "/players/wilhelm/area/bloodwood/rooms/forest_p6");	  
-//   return;
-//   }	
+//   // if (this_player()-> query_property("wilhelm_bloodwood_quest")){
+//   //     // this_player()->move_player("north",
+//   //     // "/players/wilhelm/area/bloodwood/rooms/forest_p6");	  
+//   // return;
+//   // }	
 //   if (!this_player()-> query_property("wilhelm_bloodwood_horn")){
-//        this_player()->move_player("north",
-//       "/players/wilhelm/area/bloodwood/rooms/forest_p6");
-//   return 
+//       //  this_player()->move_player("north",
+//       // "/players/wilhelm/area/bloodwood/rooms/forest_p6");
+   
 //   line_break("You feel unsafe walking onto the forest path, someone might see you.");	  
+//   return;
 //   }
 
 // }
 
-// check_exit_ne() {
+check_exit() {
 
-//   if (this_player()-> query_property("wilhelm_bloodwood_quest")){
-//       this_player()->move_player("northeast",
-//       "/players/wilhelm/area/bloodwood/rooms/forest_p5");	  
-//   return;
-//   }	
-//   if (!this_player()-> query_property("wilhelm_bloodwood_horn")){
-//        this_player()->move_player("northeast",
-//       "/players/wilhelm/area/bloodwood/rooms/forest_p5");
-//   return 
-//   line_break("You feel unsafe walking onto the forest path, someone might see you.");	  
-//   }
+  // if (this_player()-> query_property("wilhelm_bloodwood_quest")){
+  //     this_player()->move_player("northeast",
+  //     "/players/wilhelm/area/bloodwood/rooms/forest_p5");	  
+  // return;
+  // }	
+  if (!this_player()-> query_property("wilhelm_bloodwood_horn")){
+      //  this_player()->move_player("northeast",
+      // "/players/wilhelm/area/bloodwood/rooms/forest_p5");
+      write("You feel unsafe walking onto the forest path, someone might see you.\n");	  
+      return ;
+  }
 
-// }
+}
 
 // check_exit_nw() {
 
-//   if (this_player()-> query_property("wilhelm_bloodwood_quest")){
-//       this_player()->move_player("northwest",
-//       "/players/wilhelm/area/bloodwood/rooms/forest_p7");	  
-//   return;
-//   }	
+//   // if (this_player()-> query_property("wilhelm_bloodwood_quest")){
+//   //     this_player()->move_player("northwest",
+//   //     "/players/wilhelm/area/bloodwood/rooms/forest_p7");	  
+//   // return;
+//   // }	
 //   if (!this_player()-> query_property("wilhelm_bloodwood_horn")){
-//        this_player()->move_player("northwest",
-//       "/players/wilhelm/area/bloodwood/rooms/forest_p7");
+//       //  this_player()->move_player("northwest",
+//       // "/players/wilhelm/area/bloodwood/rooms/forest_p7");
 //   return 
 //   line_break("You feel unsafe walking onto the forest path, someone might see you.");	  
 //   }

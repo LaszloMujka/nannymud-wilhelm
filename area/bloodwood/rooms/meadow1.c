@@ -20,7 +20,7 @@ void reset(int arg)
   add_property("wilhelm_meadow1");
   add_light(1);
   
-  add_exit("northeast", "path4", 1, "do_northeast");
+  add_exit("northeast", "path4", "northeast", "do_northeast");
   add_hidden_exit("west", "meadow2", 0, "forest");
   add_hidden_exit("east", "meadow2", 0, "lost");
   
@@ -130,7 +130,7 @@ do_northeast() {
   else
   this_player()->move_player("northeast",
   "/players/wilhelm/area/bloodwood/rooms/path2");	
-	return;
+	return 1;
 }
 
 

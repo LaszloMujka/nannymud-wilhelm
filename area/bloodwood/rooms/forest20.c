@@ -78,7 +78,7 @@ cmd_search() {
 cmd_climb() {
   name = this_player() -> query_real_name();
   if (search_hedge[name]) {
-	this_player()->move_player("climbs, the thorny hedge",
+	this_player()->move_player("into the thorny hedge",
     "/players/wilhelm/area/bloodwood/rooms/gardens3");	  
     return 1; 
   }

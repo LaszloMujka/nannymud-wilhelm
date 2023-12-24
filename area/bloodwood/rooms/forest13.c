@@ -44,20 +44,21 @@ exit()
   return "The forest is too overgrown for you to be able to explore in that direction.";
 }
 
-check_exit() {
+// check_exit() {
 
-  if (this_player()-> query_property("wilhelm_bloodwood_quest")){
-      this_player()->move_player("east",
-      "/players/wilhelm/area/bloodwood/rooms/forest_p4");	  
-  return;
-  }	
-  if (!this_player()-> query_property("wilhelm_bloodwood_horn")){
-       this_player()->move_player("east",
-      "/players/wilhelm/area/bloodwood/rooms/forest_p4");
-  return 
-  line_break("You feel unsafe walking onto the forest path, someone might see you.");	  
-  }
+//   if (this_player()-> query_property("wilhelm_bloodwood_quest")){
+//       // this_player()->move_player("east",
+//       // "/players/wilhelm/area/bloodwood/rooms/forest_p4");	  
+//   return;
+//   }	
+//   if (!this_player()-> query_property("wilhelm_bloodwood_horn")){
+//       //  this_player()->move_player("east",
+//       // "/players/wilhelm/area/bloodwood/rooms/forest_p4");
+//       write("You feel unsafe walking onto the forest path, someone might see you.\n");	  
 
-}
+//   return ;
+//   }
+
+// }
 
 // -- Random happenings -------------------------------------------------------

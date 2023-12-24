@@ -64,6 +64,7 @@ void reset(int arg)
 
 listen()
 {
+  //what is with the std/msg and how can this be solved because the display is not correct
 "/std/msg"->msg("\bPRON stop\b$ and listens to the surroundings.\n");
 write("In the library, only the quiet sound of the librarian turning the \n");
 write("pages of his book can be heard.\n");

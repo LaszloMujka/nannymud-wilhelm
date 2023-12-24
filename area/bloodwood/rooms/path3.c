@@ -48,16 +48,12 @@ do_east() {
   if (this_player()-> query_property("wilhelm_bloodwood_horn") &&
       !this_player()-> query_property("wilhelm_bloodwood_quest")){
     this_player()->remove_property("wilhelm_bloodwood_horn");
-	this_player()->move_player("east",
-  "/players/wilhelm/area/bloodwood/rooms/path2");
-  return line_break ("You walk further away from the forest, whoever "+
+  write("You walk further away from the forest, whoever "+
   "was watching you should not be able to see you from here. Your "+
-  "curse should be lifted.");
+  "curse should be lifted.\n");
+  return;
   }
-  else
-  this_player()->move_player("east",
-  "/players/wilhelm/area/bloodwood/rooms/path2");	
-	return;
+ 
 }
 
 

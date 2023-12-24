@@ -62,6 +62,10 @@ arrive(who) {
   if (!objectp(w))
     return;
 
+    if (this_player()->query_npc()){
+      return 1;
+    }
+
   if (this_player()-> query_puzzle("wilhelm_bloodwood_quest") ) {
     return;      
 	}

@@ -1,6 +1,7 @@
 /*BloodWood*/
 
 inherit "/players/wilhelm/area/siridfaath/rooms/outdoor_rooms";
+inherit "/players/wilhelm/area/bloodwood/rooms/forest_rooms";
 #define TD "/obj/util/timed"
 //#define LOGGER load_object("/players/wilhelm/simple_logger")
 
@@ -17,8 +18,8 @@ void reset(int arg)
   add_light(1);
   add_exit("southeast", "forest_p2");
   add_exit("north", "forest_p4");
-  add_hidden_exit("south", "forest8", "into the forest","check_exit");
-  add_hidden_exit("east", "forest26", "east, into the forest","check_exit");
+  add_hidden_exit("south", "forest8", "into the forest","check_exit_s");
+  add_hidden_exit("east", "forest26", "east, into the forest","check_exit_e");
   
 // -- Description and settings -------------------------------------------
 
@@ -88,8 +89,8 @@ check_exit_e() {
   if ((this_player()-> query_property("wilhelm_bloodwood_quest")) ||
      (this_player()-> query_puzzle("wilhelm_bloodwood_quest")))
   {
-    this_player()->move_player("east",
-    "/players/wilhelm/area/bloodwood/rooms/forest26");	  
+    // this_player()->move_player("east",
+    // "/players/wilhelm/area/bloodwood/rooms/forest26");	  
   return;
   }	
   if (this_player()-> query_property("wilhelm_bloodwood_horn")){
@@ -104,8 +105,8 @@ check_exit_s() {
   if ((this_player()-> query_property("wilhelm_bloodwood_quest")) ||
      (this_player()-> query_puzzle("wilhelm_bloodwood_quest")))
   {
-    this_player()->move_player("south",
-    "/players/wilhelm/area/bloodwood/rooms/forest8");	  
+    // this_player()->move_player("south",
+    // "/players/wilhelm/area/bloodwood/rooms/forest8");	  
   return;
   }	
   if (this_player()-> query_property("wilhelm_bloodwood_horn")){

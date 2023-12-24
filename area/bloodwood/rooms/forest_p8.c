@@ -85,22 +85,22 @@ make_sky() {
 
 // -- Commands output --------------------------------------------------------
 
-// check_exit() { 
-//   if (this_player()->query_npc() && creator(this_player())=="wilhelm"){
-//     return 1;
-//   }
-//   if ((this_player()-> query_property("wilhelm_bloodwood_quest")) ||
-//      (this_player()-> query_puzzle("wilhelm_bloodwood_quest")))
-//   {
-//     this_player()->move_player("south",
-//     "/players/wilhelm/area/bloodwood/rooms/forest12");	  
-//   return;
-//   }	
-//   if (this_player()-> query_property("wilhelm_bloodwood_horn")){
-//   return line_break("The plants and trees around you seem to shift and sway "+
-//   "blocking the path south.");
-//   }
-// }
+check_exit() { 
+  if (this_player()->query_npc() && creator(this_player())=="wilhelm"){
+    return 1;
+  }
+  if ((this_player()-> query_property("wilhelm_bloodwood_quest")) ||
+     (this_player()-> query_puzzle("wilhelm_bloodwood_quest")))
+  {
+    // this_player()->move_player("south",
+    // "/players/wilhelm/area/bloodwood/rooms/forest12");	  
+  return;
+  }	
+  if (this_player()-> query_property("wilhelm_bloodwood_horn")){
+  return line_break("The plants and trees around you seem to shift and sway "+
+  "blocking the path south.");
+  }
+}
 
 
 // -- Random happenings -------------------------------------------------------
